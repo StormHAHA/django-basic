@@ -1,0 +1,123 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    color: white;
+    background-color: #2c2c2c;
+    font-family: 'Comfortaa', sans-serif;
+
+}
+
+.page-heading {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(to right, #662D8C ,#ED1E79);
+    padding: 16px 0 16px 0;
+    margin-bottom: 32px;
+
+}
+.login-link {
+    padding: 24px;
+    background: #2c2c2c;
+    font-weight: 600;
+    border-radius: 8px;
+    color: #ED1E79;
+    transition: all 0.5s;
+}
+.login-link:hover {
+    background-color: #662D8C;
+    color: white;
+}
+.rooms-section {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    margin: 0 auto;
+    border-top: 1px solid white;
+}
+.h {
+    font-weight: 600;
+    color: #ED1E79;
+}
+.room {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 10fr 3fr;
+    align-items: center;
+    justify-items: center;
+    border-bottom: 1px solid white;
+    text-align: center;
+}
+.room-resident {
+    border-left: 1px solid #ED1E79;
+    border-right: 1px solid #ED1E79;
+    padding: 16px 0 16px 0;
+    width: 100%;
+}
+
+.popup {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+    border: 2px solid #ED1E79;
+    padding: 16px;
+    border-radius: 12px;
+
+}
+
+.usname {
+    border: 2px solid #662D8C;
+    padding: 8px;
+    border-radius: 8px;
+}
+.usname:focus {
+    border: 2px solid #ED1E79;
+    outline: none;
+}
+.uspassword {
+    border: 2px solid #662D8C;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.uspassword:focus {
+    border: 2px solid #ED1E79;
+    outline: none;
+}
+.btn {
+    padding: 8px;
+    border: none;
+    background-color: white;
+    color: black;
+    font-weight: 600;
+    border-radius: 8px;
+
+}
+.btn:active {
+    color: white;
+    background-color: #662D8C;
+}
+
+.r {
+    color: red;
+}
+.g {
+    color: green;
+}
+
+.data {
+    margin-bottom: 32px;
+    width:100%;
+    text-align:center;
+}

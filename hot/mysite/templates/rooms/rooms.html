@@ -1,0 +1,58 @@
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Номера</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="page-heading">
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'logout' %}" class="login-link">Log Out</a>
+        {% else %}
+        <a href="{% url 'login' %}" class="login-link">Log In</a>
+        {% endif %}
+    </header>
+    {% if not request.user.is_superuser %}
+        <h2 class="data">Ваши данные:</h2>
+        {% endif %}
+    <section class="rooms-section">
+
+        <div class="room">
+            <div class="room-number h">Номер комнаты</div>
+            <div class="room-resident h">Резидент</div>
+            <div class="room-status h">Статус</div>
+        </div>
+    {% if request.user.is_superuser %}
+    {% for room in rooms_list %}
+        <div class="room">
+            <div class="room-number">{{ room.room_number }}</div>
+            <div class="room-resident">{{room.room_resident}}</div>
+            {% if room.room_status == True %}
+            <div class="room-status r">Занято</div>
+            {% else %}
+            <div class="room-status g">Свободно</div>
+            {% endif %}
+        </div>
+        {% endfor %}
+        {% else %}
+        {% for room in rooms_list %}
+        {% if room.room_resident == request.user.username %}
+        <div class="room">
+            <div class="room-number">{{ room.room_number }}</div>
+            <div class="room-resident">{{room.room_resident}}</div>
+            {% if room.room_status == True %}
+            <div class="room-status r">Занято</div>
+            {% else %}
+            <div class="room-status g">Свободно</div>
+            {% endif %}
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+    </section>
+</body>
+</html>
